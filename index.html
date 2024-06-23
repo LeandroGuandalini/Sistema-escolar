@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão Acadêmica Simples</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Sistema de Gestão Acadêmica Simples</h1>
+        
+        <!-- Cadastro de Aluno -->
+        <div class="card mb-4">
+            <div class="card-header">Cadastro de Aluno</div>
+            <div class="card-body">
+                <form id="formCadastroAluno">
+                    <div class="form-group">
+                        <label for="idAluno">ID do Aluno</label>
+                        <input type="number" value="1" class="form-control" id="idAluno" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomeAluno">Nome do Aluno</label>
+                        <input type="text" value="elberth" class="form-control" id="nomeAluno" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="cadastrarAluno()">Cadastrar Aluno</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Cadastro de Curso -->
+        <div class="card mb-4">
+            <div class="card-header">Cadastro de Curso</div>
+            <div class="card-body">
+                <form id="formCadastroCurso">
+                    <div class="form-group">
+                        <label for="idCurso">ID do Curso</label>
+                        <input type="number" value="1" class="form-control" id="idCurso" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomeCurso">Nome do Curso</label>
+                        <input type="text" value="java" class="form-control" id="nomeCurso" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="cadastrarCurso()">Cadastrar Curso</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Matrícula de Aluno em Curso -->
+        <div class="card mb-4">
+            <div class="card-header">Matrícula de Aluno em Curso</div>
+            <div class="card-body">
+                <form id="formMatriculaAluno">
+                    <div class="form-group">
+                        <label for="idAlunoMatricula">ID do Aluno</label>
+                        <input type="number" value="1" class="form-control" id="idAlunoMatricula" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="idCursoMatricula">ID do Curso</label>
+                        <input type="number" value="1" class="form-control" id="idCursoMatricula" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="matricularAluno()">Matricular Aluno</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Lançar Nota -->
+        <div class="card mb-4">
+            <div class="card-header">Lançar Nota</div>
+            <div class="card-body">
+                <form id="formLancarNota">
+                    <div class="form-group">
+                        <label for="idAlunoNota">ID do Aluno</label>
+                        <input type="number" value="1" class="form-control" id="idAlunoNota" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="notaAluno">Nota</label>
+                        <input type="number" value="10" class="form-control" id="notaAluno" step="0.01" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="lancarNota()">Lançar Nota</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Calcular Média -->
+        <div class="card mb-4">
+            <div class="card-header">Calcular Média</div>
+            <div class="card-body">
+                <form id="formCalcularMedia">
+                    <div class="form-group">
+                        <label for="idAlunoMedia">ID do Aluno</label>
+                        <input type="number" class="form-control" id="idAlunoMedia" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="calcularMedia()">Calcular Média</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Listar Aluno -->
+        <div class="card mb-4">
+            <div class="card-header">Listar Aluno</div>
+            <div class="card-body">
+                <form id="formListarAluno">
+                    <div class="form-group">
+                        <label for="idAlunoListar">ID do Aluno</label>
+                        <input type="number" class="form-control" id="idAlunoListar" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="listarAluno()">Listar Aluno</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Listar Curso -->
+        <div class="card mb-4">
+            <div class="card-header">Listar Curso</div>
+            <div class="card-body">
+                <form id="formListarCurso">
+                    <div class="form-group">
+                        <label for="idCursoListar">ID do Curso</label>
+                        <input type="number" class="form-control" id="idCursoListar" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="listarCurso()">Listar Curso</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Relatório de Média Baixa -->
+        <div class="card mb-4">
+            <div class="card-header">Relatório de Média Baixa</div>
+            <div class="card-body">
+                <form id="formRelatorioMediaBaixa">
+                    <div class="form-group">
+                        <label for="valorMediaBaixa">Valor da Média</label>
+                        <input type="number" class="form-control" id="valorMediaBaixa" step="0.01" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="relatorioMediaBaixa()">Gerar Relatório</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Relatório de Média Alta -->
+        <div class="card mb-4">
+            <div class="card-header">Relatório de Média Alta</div>
+            <div class="card-body">
+                <form id="formRelatorioMediaAlta">
+                    <div class="form-group">
+                        <label for="valorMediaAlta">Valor da Média</label>
+                        <input type="number" class="form-control" id="valorMediaAlta" step="0.01" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="relatorioMediaAlta()">Gerar Relatório</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Relatório de Aprovação -->
+        <div class="card mb-4">
+            <div class="card-header">Relatório de Aprovação</div>
+            <div class="card-body">
+                <form id="formRelatorioAprovacao">
+                    <div class="form-group">
+                        <label for="limiteAprovacao">Limite de Aprovação</label>
+                        <input type="number" class="form-control" id="limiteAprovacao" step="0.01" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="relatorioAprovacao()">Gerar Relatório</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Recuperar Todos os Alunos -->
+        <div class="card mb-4">
+            <div class="card-header">Recuperar Todos os Alunos</div>
+            <div class="card-body">
+                <button type="button" class="btn btn-primary" onclick="recuperarTodosAlunos()">Recuperar Alunos</button>
+            </div>
+        </div>
+
+        <!-- Recuperar Todas as Notas de um Aluno -->
+        <div class="card mb-4">
+            <div class="card-header">Recuperar Todas as Notas de um Aluno</div>
+            <div class="card-body">
+                <form id="formRecuperarNotasAluno">
+                    <div class="form-group">
+                        <label for="idAlunoNotas">ID do Aluno</label>
+                        <input type="number" class="form-control" id="idAlunoNotas" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="recuperarNotasAluno()">Recuperar Notas</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Recuperar Todos os Cursos -->
+        <div class="card mb-4">
+            <div class="card-header">Recuperar Todos os Cursos</div>
+            <div class="card-body">
+                <button type="button" class="btn btn-primary" onclick="recuperarTodosCursos()">Recuperar Cursos</button>
+            </div>
+        </div>
+
+        <!-- Recuperar Todos os Alunos Matriculados em um Curso -->
+        <div class="card mb-4">
+            <div class="card-header">Recuperar Alunos Matriculados em um Curso</div>
+            <div class="card-body">
+                <form id="formRecuperarAlunosCurso">
+                    <div class="form-group">
+                        <label for="idCursoAlunos">ID do Curso</label>
+                        <input type="number" class="form-control" id="idCursoAlunos" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="recuperarAlunosCurso()">Recuperar Alunos</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Área de Resultado -->
+        <div class="card">
+            <div class="card-header">Resultado</div>
+            <div class="card-body">
+                <pre id="resultadoTexto"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="SistemaGestaoAcademicaSimples.js"></script>
+</body>
+</html>
